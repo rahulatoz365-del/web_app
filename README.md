@@ -3,24 +3,24 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](#)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](#)
 [![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=Keras&logoColor=white)](#)
-[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](#) 
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](#)
 
-An AI-powered web application that leverages Deep Learning and Computer Vision to predict and classify various skin diseases from user-uploaded images. 
+An AI-powered web application built with Streamlit that leverages Deep Learning and Computer Vision to predict and classify various skin diseases from user-uploaded images.
 
 ---
 
 ## 📖 Overview
 
-Early detection of skin conditions is crucial for effective medical treatment. This project bridges the gap between machine learning and healthcare by providing an intuitive web interface for a trained Convolutional Neural Network (CNN). 
+Early detection of skin conditions is crucial for effective medical treatment. This project bridges the gap between machine learning and healthcare by providing an intuitive, interactive web interface powered by Streamlit for a trained Convolutional Neural Network (CNN). 
 
-Users can upload an image of a skin anomaly, and the backend processes the image, feeds it into a pre-trained Keras/TensorFlow model (`skin_disease_model.h5`), and returns an instant diagnostic prediction.
+Users can upload an image of a skin anomaly, and the application processes the image, feeds it into a pre-trained Keras/TensorFlow model (`skin_disease_model.h5`), and displays an instant diagnostic prediction with confidence intervals directly in the browser.
 
 ## ✨ Key Features
 
-* **Instant Predictions:** Real-time inference using a trained deep learning model.
+* **Instant Predictions:** Real-time, server-side inference using a trained deep learning model.
+* **Interactive UI:** A highly responsive dashboard built entirely in Python using Streamlit's file-uploader and layouts.
 * **Image Preprocessing:** Automatically resizes and scales user-uploaded images to match the model's required input dimensions.
-* **User-Friendly Interface:** A clean, accessible web UI that allows users to easily upload images and view results.
-* **Secure Local Processing:** Images are processed locally on the server without being stored, ensuring data privacy.
+* **Secure Local Processing:** Images are processed locally on the runtime environment without being permanently stored, ensuring user data privacy.
 
 ---
 
@@ -28,8 +28,8 @@ Users can upload an image of a skin anomaly, and the backend processes the image
 
 The core of this application is the `skin_disease_model.h5` file. 
 * **Architecture:** Convolutional Neural Network (CNN) built with Keras/TensorFlow.
-* **Input:** RGB images (Resized to `[Insert Image Size, e.g., 224x224]` pixels).
-* **Classes:** The model is trained to classify the following skin conditions:
+* **Input:** RGB images (Resized to match the model's expected input shape).
+* **Classes:** The model is trained to classify multiple skin conditions:
   * 🔹 *[e.g., Melanoma]*
   * 🔹 *[e.g., Basal Cell Carcinoma]*
   * 🔹 *[e.g., Benign Keratosis]*
@@ -39,9 +39,8 @@ The core of this application is the `skin_disease_model.h5` file.
 
 ## 🛠️ Technology Stack
 
-* **Backend & API:** Python, [Flask / FastAPI / Streamlit - *keep the one you used*]
-* **Machine Learning:** TensorFlow, Keras, NumPy, Pillow (PIL)
-* **Frontend:** HTML, CSS, JavaScript *(remove if you used Streamlit)*
+* **Frontend & Backend Framework:** Streamlit (Python-native web framework)
+* **Machine Learning & Vision:** TensorFlow, Keras, NumPy, Pillow (PIL)
 
 ---
 
@@ -58,7 +57,7 @@ cd web_app
 
 ### 2. Set Up a Virtual Environment (Highly Recommended)
 
-Creating a virtual environment ensures that the TensorFlow dependencies do not conflict with your system Python packages.
+Creating a virtual environment ensures that your machine learning dependencies stay isolated and organized.
 
 ```bash
 # Create the environment
@@ -74,25 +73,23 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 
-Make sure to install the required libraries to run the server and the ML model:
+Install the required libraries to run both the Streamlit web interface and the underlying ML model:
 
 ```bash
-pip install tensorflow numpy pillow flask
+pip install tensorflow numpy pillow streamlit
 
 ```
 
-*(If you have a `requirements.txt` file, you can simply run: `pip install -r requirements.txt`)*
+### 4. Run the Streamlit App
 
-### 4. Run the Application
-
-Start the local web server:
+Instead of standard script execution, launch the application using the Streamlit CLI:
 
 ```bash
-python app.py
+streamlit run app.py
 
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:5000` (or the port specified in your terminal) to use the app.
+Once initialized, Streamlit will automatically open your local browser to `http://localhost:8501`.
 
 ---
 
